@@ -36,7 +36,6 @@ exports.meta = {
                 $.getJSON(
                     `${hostUrl}/static/charts/stationType/${id}.json`,
                     (result, error) => {
-			    // console.log(result)
                         res(result);
                     }
                 ).fail(function(error) {

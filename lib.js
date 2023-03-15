@@ -53,7 +53,7 @@ module.exports = {
 		config.coordinates.latitude = Number(config_element.dataset.latitude)
 		config.coordinates.longitude = Number(config_element.dataset.longitude)
 
-		config.hostUrl = config_element.dataset.hostUrl
+		config.hostUrl = config_element.dataset.hosturl
 		if(config.hostUrl === undefined) config.hostUrl = window.location.origin
 		/*
 		console.log('parsed', config)
