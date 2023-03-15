@@ -35,11 +35,14 @@ exports.meta = {
 
                 $.getJSON(
                     `${hostUrl}/static/charts/stationType/${id}.json`,
-                    (result) => {
+                    (result, error) => {
 			    // console.log(result)
                         res(result);
                     }
-                );
+                ).fail(function(error) {
+                    console.log(`${hostUrl}/static/charts/stationType/${id}.json`)
+                    console.log( "error", error);
+                });
 
             }).catch((error) => {
 
