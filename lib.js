@@ -37,7 +37,7 @@ const sets = require("./static/preset.json");
 const {meta} = require("./modules/config/metaMngr.js");
 
 const stationTypeMap = require("./static/charts/stationTypeMap.json");
-lib = {
+module.exports = {
 	renderFromData (id, config_id) {
 		let config_element = document.querySelector(config_id)
 		let config = {}
