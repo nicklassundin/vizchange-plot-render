@@ -65,8 +65,11 @@ module.exports = {
 
 		config.plot = sets[config.set]
 			? sets[config.set]
-			: [config.set];
-		config.plot = config.plot.pop();
+			: [config.set]
+
+		if(Array.isArray(config.plot)) {
+			config.plot = config.plot.pop();
+		}
 
 		config.id = `${config.station}_${config.plot}`
 		let stationType = stationTypeMap[config.station];
