@@ -63,11 +63,13 @@ lib = {
 	render (element, config) {
 		global.hostUrl = config.hostUrl
 
-		config.plot = sets[config.set]
-			? sets[config.set]
-			: [config.set];
-		config.plot = config.plot.pop();
-		console.log(plot)
+		let plot = sets[config.set] ? Object.values(sets[config.set])[0] : config.set
+
+		if(typeof plot === 'object') {
+			Object.assign(config, plot)
+		}else{
+			config.plot = plot
+		}
 
 		config.id = `${config.station}_${config.plot}`
 		let stationType = stationTypeMap[config.station];
