@@ -67,6 +67,7 @@ lib = {
 			? sets[config.set]
 			: [config.set];
 		config.plot = config.plot.pop();
+		console.log(plot)
 
 		config.id = `${config.station}_${config.plot}`
 		let stationType = stationTypeMap[config.station];
