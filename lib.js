@@ -3,7 +3,7 @@ console.log("Visual Change Library Restart");
 const $ = require("jquery");
 global.queryString = require("query-string");
 global.nav_lang = "en";
-const constant = require("../static/const.json");
+const constant = require("./static/const.json");
 global.startYear = constant.startYear;
 global.endYear = constant.endYear;
 global.baselineLower = constant.baselineLower;
@@ -30,13 +30,13 @@ global.variables = {
 	"metas": {}
 };
 
-const charts = require("./config/dataset/struct.js").struct;
-const sets = require("../static/preset.json");
+const charts = require("./modules/config/dataset/struct.js").struct;
+const sets = require("./static/preset.json");
 // exports.stats = require("./stats/config.js");
 
-const {meta} = require("./config/metaMngr.js");
+const {meta} = require("./modules/config/metaMngr.js");
 
-const stationTypeMap = require("../static/charts/stationTypeMap.json");
+const stationTypeMap = require("./static/charts/stationTypeMap.json");
 lib = {
 	renderFromData (id, config_id) {
 		let config_element = document.querySelector(config_id)
