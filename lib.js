@@ -3,7 +3,7 @@ console.log("Visual Change Library Restart");
 const $ = require("jquery");
 global.queryString = require("query-string");
 global.nav_lang = "en";
-const constant = require("./static/const.json");
+const constant = require("../static/const.json");
 global.startYear = constant.startYear;
 global.endYear = constant.endYear;
 global.baselineLower = constant.baselineLower;
@@ -30,14 +30,14 @@ global.variables = {
 	"metas": {}
 };
 
-const charts = require("./modules/config/dataset/struct.js").struct;
-const sets = require("./static/preset.json");
+const charts = require("./config/dataset/struct.js").struct;
+const sets = require("../static/preset.json");
 // exports.stats = require("./stats/config.js");
 
-const {meta} = require("./modules/config/metaMngr.js");
+const {meta} = require("./config/metaMngr.js");
 
-const stationTypeMap = require("./static/charts/stationTypeMap.json");
-module.exports = {
+const stationTypeMap = require("../static/charts/stationTypeMap.json");
+lib = {
 	renderFromData (id, config_id) {
 		let config_element = document.querySelector(config_id)
 		let config = {}
@@ -53,7 +53,7 @@ module.exports = {
 		config.coordinates.latitude = Number(config_element.dataset.latitude)
 		config.coordinates.longitude = Number(config_element.dataset.longitude)
 
-		config.hostUrl = config_element.dataset.hosturl
+		config.hostUrl = config_element.dataset.hostUrl
 		if(config.hostUrl === undefined) config.hostUrl = window.location.origin
 		/*
 		console.log('parsed', config)
@@ -63,14 +63,13 @@ module.exports = {
 	render (element, config) {
 		global.hostUrl = config.hostUrl
 
-		config.plot = sets[config.set]
-			? sets[config.set]
-			: [config.set]
+		let plot = sets[config.set] ? Object.values(sets[config.set])[0] : config.set
 
-		if(Array.isArray(config.plot)) {
-			config.plot = config.plot.pop();
+		if(typeof plot === 'object') {
+			Object.assign(config, plot)
+		}else{
+			config.plot = plot
 		}
-
 		config.id = `${config.station}_${config.plot}`
 		let stationType = stationTypeMap[config.station];
 		if(stationType === undefined) {
