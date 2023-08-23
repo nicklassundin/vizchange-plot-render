@@ -605,9 +605,11 @@ class Chart {
             "xAxis": baseline(group)
         });
         if (group.tooltip) {
-            //console.log('tooltip', group.tooltip.type
+            /*
+            console.log('tooltip', group.tooltip.type
                 ? group.tooltip.type
                 : "default")
+             */
             this.chart.update({
                 "tooltip": {
                     "formatter": formatters(meta)[group.tooltip.type
