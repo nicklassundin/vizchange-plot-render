@@ -1,11 +1,12 @@
 
-console.log("Visual Change Library Restart");
+//console.log("Visual Change Library Restart");
 const $ = require("jquery");
 global.queryString = require("query-string");
 global.nav_lang = "en";
 const constant = require("./static/const.json");
 global.startYear = constant.startYear;
-global.endYear = constant.endYear;
+//global.endYear = constant.endYear;
+global.endYear = (new Date()).getFullYear();
 global.baselineLower = constant.baselineLower;
 global.baselineUpper = constant.baselineUpper;
 
@@ -43,7 +44,7 @@ module.exports = {
 		let config = {}
 		config.set = config_element.dataset.set;
 		/*
-		console.log('query', config_element.dataset)
+		//console.log('query', config_element.dataset)
 		 */
 
 		if(config.set === undefined) config.set = document.getElementById("set").value
@@ -56,7 +57,7 @@ module.exports = {
 		config.hostUrl = config_element.dataset.hostUrl
 		if(config.hostUrl === undefined) config.hostUrl = window.location.origin
 		/*
-		console.log('parsed', config)
+		//console.log('parsed', config)
 		 */
 		this.render(document.getElementById(id), Object.assign({}, config))
 	},

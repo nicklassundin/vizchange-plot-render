@@ -13,9 +13,9 @@ const $ = require("jquery"),
                     1
                 ).getTime(),
                 endDate = new Date().getTime(),
-                // Console.log(refDate)
-                // Console.log(endDate)
-                // Console.log(result.length);
+                // //console.log(refDate)
+                // //console.log(endDate)
+                // //console.log(result.length);
                 // Result = result.filter((each) => {
                 // 	If(each.from < refDate){
                 // 		Return true
@@ -23,7 +23,7 @@ const $ = require("jquery"),
                 // 		Return false
                 // 	}
                 // })
-                // // console.log(result.length);
+                // // //console.log(result.length);
 		 result = result.map((each) => ({
                     "name": each.name,
                     "lat": each.latitude,

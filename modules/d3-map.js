@@ -16,8 +16,8 @@ geoMap = function () {
         height = hConst * width,
 
         /*
-         * Console.log(width)
-         * Console.log(height)
+         * //console.log(width)
+         * //console.log(height)
          */
         projection = d3.geoAlbers().
             center([
@@ -70,8 +70,8 @@ geoMap = function () {
 	 g = svg.append("g");
 
     /*
-     * Console.log(sweden)
-     * Console.log(topojson.feature(sweden, sweden.objects.SWE_adm1).features)
+     * //console.log(sweden)
+     * //console.log(topojson.feature(sweden, sweden.objects.SWE_adm1).features)
      */
     g.append("g").
         attr(
@@ -147,7 +147,7 @@ geoMap = function () {
                 "onclick",
                 (d) => {
 
-                    console.log(d);
+                    //console.log(d);
 
                 }
             );

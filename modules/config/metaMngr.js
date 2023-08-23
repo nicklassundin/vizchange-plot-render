@@ -39,14 +39,14 @@ exports.meta = {
                         res(result);
                     }
                 ).fail(function(error) {
-                    console.log(`${hostUrl}/static/charts/stationType/${id}.json`)
-                    console.log( "error", error);
+                    //console.log(`${hostUrl}/static/charts/stationType/${id}.json`)
+                    //console.log( "error", error);
                 });
 
             }).catch((error) => {
 
-                console.log(id);
-                console.log(error);
+                //console.log(id);
+                //console.log(error);
                 throw error;
 
             }),
@@ -99,8 +99,8 @@ exports.meta = {
 
                                     });
 				    }catch(error){
-					    console.log("obj",obj);
-					    console.log("meta")
+					    //console.log("obj",obj);
+					    //console.log("meta")
 					    throw error
 				    }
                                     return res;
@@ -150,8 +150,8 @@ exports.meta = {
 
         } catch (ERROR) {
 
-            console.log(files);
-            console.log(define);
+            //console.log(files);
+            //console.log(define);
             throw ERROR;
 
         }
