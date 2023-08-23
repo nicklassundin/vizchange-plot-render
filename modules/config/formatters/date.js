@@ -36,7 +36,10 @@ var formats = {
     "DD": (date) => date.getDate(),
     "MM": (date, shrt = false) => (shrt
         ? time[nav_lang].monthShort
-        : time[nav_lang].months)[help.months()[date.getMonth()]]
+        : time[nav_lang].months)[help.months()[date.getMonth()]],
+    "week": (date) => {
+        return dateFormat(date);
+    }
 };
 exports.formats = formats;
 exports.spectrum = function (value) {

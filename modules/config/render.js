@@ -133,7 +133,7 @@ class Chart {
                                 "textKey": "langOption",
                                 "onclick" () {
 
-                                    if (nav_lang == "en") {
+                                    if (nav_lang === "en") {
 
                                         nav_lang = "sv";
 
@@ -222,7 +222,7 @@ class Chart {
                 const ext_menu = Object.keys(meta.extreme.sublim).map((key) => {
 
                     const val = meta.extreme.sublim[key];
-                    if (meta.extreme.lim == val) {
+                    if (meta.extreme.lim === val) {
 
                         return `<button class='ext_menu_${id} active' value=${val}>${val} ${meta.valueSuffix} </button>`;
 

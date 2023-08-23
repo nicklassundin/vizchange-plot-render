@@ -213,6 +213,34 @@ exports.formatters = function (meta) {
             }
 
         },
+        "datetime" () {
+            try {
+
+                let tooltip = `<span style="font-size: 10px">${this.x}</span><br/>`;
+                this.points.forEach((point) => {
+
+                    const dec = point.series.options.tooltip.valueDecimals;
+                    tooltip += `<span style="color:${
+                        point.color
+                    }">\u25CF</span> ${
+                        point.series.name
+                    } <br/>
+                    ${dateFormats.week(point.date)}
+                    </b>${meta.unitType
+                        ? ` [${meta.units[meta.unitType].plural}]`
+                        : ""
+                    }: <b>${
+                        point.y.toFixed(dec)
+                    }</b><br/>`;
+                    tooltip += "<br/>";
+
+                });
+                return tooltip;
+            } catch (error) {
+                //console.log(error);
+                return undefined;
+            }
+        },
         "default" () {
 
             try {
@@ -235,14 +263,10 @@ exports.formatters = function (meta) {
 
                 });
                 return tooltip;
-
             } catch (error) {
-
                 //console.log(error);
                 return undefined;
-
             }
-
         }
     };
 
