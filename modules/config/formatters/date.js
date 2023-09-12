@@ -38,7 +38,6 @@ var formats = {
         ? time[nav_lang].monthShort
         : time[nav_lang].months)[help.months()[date.getMonth()]],
     "YYWW": (date, week) => {
-        console.log(time[nav_lang])
         return `${date.getFullYear()} ${week} ${date.getWeekNumber()}`
     },
     "week": (date) => {

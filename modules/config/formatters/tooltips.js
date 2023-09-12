@@ -1,6 +1,13 @@
 // TODO create a builder instead of this mess
 // class structure with module parts in clear structure
 const dateFormats = require("./date").formats;
+
+class tooltipHandler {
+    constructor(meta) {
+        this.meta = meta;
+    }
+}
+
 exports.formatters = function (meta) {
     return {
         "winterDOY" () {
