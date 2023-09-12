@@ -1,5 +1,5 @@
 // TODO create a builder instead of this mess
-
+// class structure with module parts in clear structure
 const dateFormats = require("./date").formats;
 exports.formatters = function (meta) {
     return {
@@ -7,7 +7,6 @@ exports.formatters = function (meta) {
             try {
                 let tooltip = `<span style="font-size: 10px">${this.x}/${this.x+1}</span><br/>`;
                 this.points.forEach((point) => {
-                    console.log(point)
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${point.color}">\u25CF</span> ${point.series.name
                     }${meta.unitType
@@ -20,7 +19,6 @@ exports.formatters = function (meta) {
 
             } catch (error) {
 
-                //console.log(error);
                 return undefined;
 
             }
@@ -33,7 +31,6 @@ exports.formatters = function (meta) {
                 let tooltip = `<span style="font-size: 10px">${this.x - 1}/${this.x}</span><br/>`;
                 this.points.forEach((point) => {
 
-                    console.log(point)
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${point.color}">\u25CF</span> ${point.series.name
                     }${meta.unitType
@@ -46,7 +43,6 @@ exports.formatters = function (meta) {
 
             } catch (error) {
 
-                //console.log(error);
                 return undefined;
 
             }
@@ -57,7 +53,6 @@ exports.formatters = function (meta) {
             try {
                 let tooltip = `<span style="font-size: 10px">Winter ${this.x}-${this.x + 1}</span><br/>`;
                 this.points.forEach((point) => {
-                    console.log(point)
 
                     const dec = point.series.options.tooltip.valueDecimals;
 
@@ -75,7 +70,6 @@ exports.formatters = function (meta) {
 
             } catch (error) {
 
-                //console.log(error);
                 return undefined;
 
             }
@@ -87,7 +81,6 @@ exports.formatters = function (meta) {
 
                 let tooltip = `<span style="font-size: 10px">Winter ${this.x}-${this.x + 1}</span><br/>`;
                 this.points.forEach((point) => {
-                    console.log(point)
                     tooltip += `<span style="color:${
                         point.color
                     }">\u25CF</span> ${
@@ -99,20 +92,14 @@ exports.formatters = function (meta) {
 
                 });
                 return tooltip;
-
             } catch (error) {
-
-                //console.log(error);
                 return undefined;
-
             }
-
         },
         "valueDate" () {
             try {
                 let tooltip = `<span style="font-size: 10px">${this.x}</span><br/>`;
                 this.points.forEach((point) => {
-                    console.log(point)
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${
                         point.color
@@ -132,7 +119,6 @@ exports.formatters = function (meta) {
                 });
                 return tooltip;
             } catch (error) {
-                //console.log(error);
                 return undefined;
             }
         },
@@ -140,7 +126,6 @@ exports.formatters = function (meta) {
             try {
                 let tooltip = `<span style="font-size: 10px">${this.x}</span><br/>`;
                 this.points.forEach((point) => {
-                    console.log(point)
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${
                         point.color
@@ -158,7 +143,6 @@ exports.formatters = function (meta) {
                 });
                 return tooltip;
             } catch (error) {
-                //console.log(error);
                 return undefined;
             }
         },
@@ -183,7 +167,6 @@ exports.formatters = function (meta) {
                 });
                 return tooltip;
             } catch (error) {
-                //console.log(error);
                 return undefined;
             }
         },
@@ -193,8 +176,6 @@ exports.formatters = function (meta) {
 
                 let tooltip = `<span style="font-size: 10px">${this.x}</span><br/>`;
                 this.points.forEach((point) => {
-                    console.log(point)
-
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${
                         point.color
@@ -213,7 +194,6 @@ exports.formatters = function (meta) {
 
             } catch (error) {
 
-                //console.log(error);
                 return undefined;
 
             }
@@ -221,12 +201,9 @@ exports.formatters = function (meta) {
         },
         "datetimeToYYWW" () {
             try {
-                console.log(meta)
                 let date = new Date(this.x)
                 let tooltip = `<span style="font-size: 10px">${dateFormats.YYWW(date, meta.units.week.singular)}</span><br/>`;
                 this.points.forEach((point) => {
-                    console.log(point)
-
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${
                         point.color
@@ -242,10 +219,8 @@ exports.formatters = function (meta) {
                     tooltip += "<br/>";
 
                 });
-                console.log(tooltip)
                 return tooltip;
             } catch (error) {
-                console.log(error);
                 return undefined;
             }
         },
@@ -278,7 +253,6 @@ exports.formatters = function (meta) {
                 });
                 return tooltip;
             } catch (error) {
-                //console.log(error);
                 return undefined;
             }
         }
