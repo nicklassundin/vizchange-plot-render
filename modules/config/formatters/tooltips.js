@@ -1,13 +1,13 @@
 // TODO create a builder instead of this mess
 
 const dateFormats = require("./date").formats;
-
 exports.formatters = function (meta) {
     return {
         "winterDOY" () {
             try {
                 let tooltip = `<span style="font-size: 10px">${this.x}/${this.x+1}</span><br/>`;
                 this.points.forEach((point) => {
+                    console.log(point)
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${point.color}">\u25CF</span> ${point.series.name
                     }${meta.unitType
@@ -33,6 +33,7 @@ exports.formatters = function (meta) {
                 let tooltip = `<span style="font-size: 10px">${this.x - 1}/${this.x}</span><br/>`;
                 this.points.forEach((point) => {
 
+                    console.log(point)
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${point.color}">\u25CF</span> ${point.series.name
                     }${meta.unitType
@@ -56,6 +57,7 @@ exports.formatters = function (meta) {
             try {
                 let tooltip = `<span style="font-size: 10px">Winter ${this.x}-${this.x + 1}</span><br/>`;
                 this.points.forEach((point) => {
+                    console.log(point)
 
                     const dec = point.series.options.tooltip.valueDecimals;
 
@@ -85,6 +87,7 @@ exports.formatters = function (meta) {
 
                 let tooltip = `<span style="font-size: 10px">Winter ${this.x}-${this.x + 1}</span><br/>`;
                 this.points.forEach((point) => {
+                    console.log(point)
                     tooltip += `<span style="color:${
                         point.color
                     }">\u25CF</span> ${
@@ -109,6 +112,7 @@ exports.formatters = function (meta) {
             try {
                 let tooltip = `<span style="font-size: 10px">${this.x}</span><br/>`;
                 this.points.forEach((point) => {
+                    console.log(point)
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${
                         point.color
@@ -136,6 +140,7 @@ exports.formatters = function (meta) {
             try {
                 let tooltip = `<span style="font-size: 10px">${this.x}</span><br/>`;
                 this.points.forEach((point) => {
+                    console.log(point)
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${
                         point.color
@@ -161,6 +166,7 @@ exports.formatters = function (meta) {
             try {
                 let tooltip = `<span style="font-size: 10px">${this.x}</span><br/>`;
                 this.points.forEach((point) => {
+                    console.log(point)
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${
                         point.color
@@ -188,6 +194,7 @@ exports.formatters = function (meta) {
 
                 let tooltip = `<span style="font-size: 10px">${this.x}</span><br/>`;
                 this.points.forEach((point) => {
+                    console.log(point)
 
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${
@@ -218,6 +225,7 @@ exports.formatters = function (meta) {
 
                 let tooltip = `<span style="font-size: 10px">${this.x}</span><br/>`;
                 this.points.forEach((point) => {
+                    console.log(point)
 
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${
@@ -242,25 +250,32 @@ exports.formatters = function (meta) {
             }
         },
         "default" () {
-
             try {
-
+                let nameFormat = (point) => {
+                    let format = "";
+                    switch(point.series.name) {
+                        case 'Min':
+                        case 'Max':
+                            format = `${point.series.name}: <br/>${dateFormats.MMDD(point.point.date)}<br/>`
+                            break;
+                        default:
+                            format = point.series.name
+                    }
+                    return `${format}${meta.unitType
+                        ? ` [${meta.units[meta.unitType].plural}]`
+                        : ""
+                    } <b>`
+                }
                 let tooltip = `<span style="font-size: 10px">${this.x}</span><br/>`;
                 this.points.forEach((point) => {
-
+                    console.log(point)
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${
                         point.color
                     }">\u25CF</span> ${
-                        point.series.name
-                    }${meta.unitType
-                        ? ` [${meta.units[meta.unitType].plural}]`
-                        : ""
-                    }: <b>${
-                        point.y.toFixed(dec)
-                    }</b><br/>`;
+                        nameFormat(point)
+                    }${point.y.toFixed(dec)}</b><br/>`;
                     tooltip += "<br/>";
-
                 });
                 return tooltip;
             } catch (error) {

@@ -617,6 +617,12 @@ class Chart {
                         : "default"]
                 }
             });
+        }else{
+            this.chart.update({
+                "tooltip": {
+                    "formatter": formatters(meta).default
+                }
+            })
         }
         try {
             ////console.log('meta', meta)

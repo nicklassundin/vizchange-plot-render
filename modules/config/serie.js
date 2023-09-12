@@ -402,7 +402,6 @@ class Serie {
 		return this.extreme
 	}
 	get "avg" () {
-
 		return (meta) => this.preset(
 			meta.series.avg,
 			{
