@@ -166,7 +166,6 @@ exports.formatters = function (meta) {
             try {
                 let tooltip = `<span style="font-size: 10px">${this.x}</span><br/>`;
                 this.points.forEach((point) => {
-                    console.log(point)
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${
                         point.color
