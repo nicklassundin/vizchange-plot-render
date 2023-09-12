@@ -219,10 +219,11 @@ exports.formatters = function (meta) {
             }
 
         },
-        "datetime" () {
+        "datetimeToYYWW" () {
             try {
-
-                let tooltip = `<span style="font-size: 10px">${this.x}</span><br/>`;
+                console.log(meta)
+                let date = new Date(this.x)
+                let tooltip = `<span style="font-size: 10px">${dateFormats.YYWW(date, meta.units.week.singular)}</span><br/>`;
                 this.points.forEach((point) => {
                     console.log(point)
 
@@ -231,8 +232,7 @@ exports.formatters = function (meta) {
                         point.color
                     }">\u25CF</span> ${
                         point.series.name
-                    } <br/>
-                    ${dateFormats.week(point.date)}
+                    }
                     </b>${meta.unitType
                         ? ` [${meta.units[meta.unitType].plural}]`
                         : ""
@@ -242,9 +242,10 @@ exports.formatters = function (meta) {
                     tooltip += "<br/>";
 
                 });
+                console.log(tooltip)
                 return tooltip;
             } catch (error) {
-                //console.log(error);
+                console.log(error);
                 return undefined;
             }
         },
@@ -267,7 +268,6 @@ exports.formatters = function (meta) {
                 }
                 let tooltip = `<span style="font-size: 10px">${this.x}</span><br/>`;
                 this.points.forEach((point) => {
-                    console.log(point)
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${
                         point.color

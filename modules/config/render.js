@@ -604,7 +604,14 @@ class Chart {
         this.chart.update({
             "xAxis": baseline(group)
         });
-        if (group.tooltip) {
+        if (group['ppm350']){
+            console.log(group['ppm350'])
+            this.chart.update({
+                "tooltip": {
+                    "formatter": formatters(meta).datetimeToYYWW
+                }
+            })
+        }else if (group.tooltip) {
             /*
             console.log('tooltip', group.tooltip.type
                 ? group.tooltip.type

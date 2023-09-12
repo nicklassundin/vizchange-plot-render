@@ -37,8 +37,12 @@ var formats = {
     "MM": (date, shrt = false) => (shrt
         ? time[nav_lang].monthShort
         : time[nav_lang].months)[help.months()[date.getMonth()]],
+    "YYWW": (date, week) => {
+        console.log(time[nav_lang])
+        return `${date.getFullYear()} ${week} ${date.getWeekNumber()}`
+    },
     "week": (date) => {
-        return dateFormat(date);
+        return date.getWeekNumber();
     }
 };
 exports.formats = formats;
