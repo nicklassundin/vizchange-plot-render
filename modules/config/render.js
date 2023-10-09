@@ -34,6 +34,25 @@ class Chart {
             metaRef.text()
         );
         meta = this.meta
+        // Period fix TODO remove config
+        if(meta.period) {
+            let period = (meta.tag.render === 'periodMeans' ? 30 : 10);
+            let start = (meta.tag.render === 'periodMeans' ? 1931 : 1961);
+            let end = (meta.tag.render === 'periodMeans' ? 1991 : 2011)
+
+            let year = (new Date(Date.now())).getFullYear();
+            for (let i = start; i < year-period; i=i+period) {
+                if(i >= end){
+                    meta.series[i+period] = {};
+                    Object.assign(meta.series[i+period], meta.series[i]);
+                    meta.series[i+period].name = meta.series[i+period].name.replace(i, i+period);
+
+                    Object.assign(meta.series[i], meta.series[i-period])
+                    meta.series[i].name = meta.series[i].name.replace(i-1, i+period-1).replace(i-period, i);
+                }
+            }
+        }
+        //
         this.chart = Highcharts.chart(
             id,
             {
@@ -605,7 +624,6 @@ class Chart {
             "xAxis": baseline(group)
         });
         if (group['ppm350']){
-            console.log(group['ppm350'])
             this.chart.update({
                 "tooltip": {
                     "formatter": formatters(meta).datetimeToYYWW
