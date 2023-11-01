@@ -70,6 +70,7 @@
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^4.31.2",
+    "arkit": "^1.6.4",
     "chai": "^4.2.0",
     "coveralls": "^3.1.0",
     "csv-loader": "^3.0.3",
@@ -83,7 +84,9 @@
   },
   "scripts": {
     "test": "git submodule update && npm run test-unit",
-    "test-unit": "mocha './modules/**/*.spec.js' --delay"
+    "test-unit": "mocha './modules/**/*.spec.js' --delay",
+    "build": "npx arkit",
+    "arkit": "npx arkit"
   },
   "repository": {
     "type": "git",
@@ -95,5 +98,11 @@
   "bugs": {
     "url": "https://github.com/nicklassundin/vizchange-plot-render/issues"
   },
-  "homepage": "https://github.com/nicklassundin/vizchange-plot-render#readme"
+  "homepage": "https://github.com/nicklassundin/vizchange-plot-render#readme",
+  "arkit": {
+    "$schema": "https://arkit.pro/schema.json",
+    "output": {
+      "path": ["docs/arkit.svg", "docs/arkit.png"]
+    }
+  }
 }

@@ -40,6 +40,7 @@ const {meta} = require("./modules/config/metaMngr.js");
 const stationTypeMap = require("./static/charts/stationTypeMap.json");
 module.exports = {
 	renderFromData (id, config_id) {
+		console.log('text');
 		let config_element = document.querySelector(config_id)
 		let config = {}
 		config.set = config_element.dataset.set;
@@ -62,6 +63,7 @@ module.exports = {
 		this.render(document.getElementById(id), Object.assign({}, config))
 	},
 	render (element, config) {
+		console.log('text');
 		global.hostUrl = config.hostUrl
 
 		let plot = sets[config.set] ? Object.values(sets[config.set])[0] : config.set

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="557px" preserveAspectRatio="none" style="width:928px;height:557px;" version="1.1" viewBox="0 0 928 557" width="928px" zoomAndPan="magnify"><defs/><g><!--MD5=[a6f11bb19cee6b13000111f5ad685e8b]
+cluster Dependencies--><path d="M742,24 L844,24 A4.5,4.5 0 0 1 847,27 L854,43.9688 L913,43.9688 A3,3 0 0 1 916,46.9688 L916,453 A3,3 0 0 1 913,456 L742,456 A3,3 0 0 1 739,453 L739,27 A3,3 0 0 1 742,24 " fill="#FFFFFF" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="739" x2="854" y1="43.9688" y2="43.9688"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="102" x="743" y="37.1387">Dependencies</text><!--MD5=[dcc9850087d4217325372360081e95e2]
+entity climate-plots-helper--><rect fill="#F8F8F8" height="33.9688" rx="3" ry="3" style="stroke: #383838; stroke-width: 1.0;" width="145" x="755" y="206"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="750" y="211"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="750" y="229.9688"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="125" x="765" y="227.1387">climate-plots-helper</text><!--MD5=[3bf88ac1802158bcbf19df12d4793d0e]
+entity highcharts--><rect fill="#F8F8F8" height="33.9688" rx="3" ry="3" style="stroke: #383838; stroke-width: 1.0;" width="84" x="785.5" y="106"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="780.5" y="111"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="780.5" y="129.9688"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="64" x="795.5" y="127.1387">highcharts</text><!--MD5=[397b296eedc2e51237f0291481916692]
+entity jquery--><rect fill="#F8F8F8" height="33.9688" rx="3" ry="3" style="stroke: #383838; stroke-width: 1.0;" width="58" x="798.5" y="356"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="793.5" y="361"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="793.5" y="379.9688"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="38" x="808.5" y="377.1387">jquery</text><!--MD5=[e47c7906099f79951445d2715840b67d]
+entity jquery-contextmenu--><rect fill="#F8F8F8" height="33.9688" rx="3" ry="3" style="stroke: #383838; stroke-width: 1.0;" width="143" x="756" y="156"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="751" y="161"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="751" y="179.9688"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="123" x="766" y="177.1387">jquery-contextmenu</text><!--MD5=[188b1ba42d99365d4b59e691e084753e]
+entity papaparse--><rect fill="#F8F8F8" height="33.9688" rx="3" ry="3" style="stroke: #383838; stroke-width: 1.0;" width="88" x="783.5" y="306"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="778.5" y="311"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="778.5" y="329.9688"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="68" x="793.5" y="327.1387">papaparse</text><!--MD5=[e9f0ced3e9fe8f42e3f71d5fa79467f1]
+entity query-string--><rect fill="#F8F8F8" height="33.9688" rx="3" ry="3" style="stroke: #383838; stroke-width: 1.0;" width="95" x="780" y="406"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="775" y="411"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="775" y="429.9688"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="75" x="790" y="427.1387">query-string</text><!--MD5=[14220b325d746bd4e8385ba66d0b6cb4]
+entity remarkable--><rect fill="#F8F8F8" height="33.9688" rx="3" ry="3" style="stroke: #383838; stroke-width: 1.0;" width="91" x="782" y="256"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="777" y="261"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="777" y="279.9688"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="71" x="792" y="277.1387">remarkable</text><!--MD5=[68ee57038bc370ff986cea0c2e700a48]
+entity vizchange-stats--><rect fill="#F8F8F8" height="33.9688" rx="3" ry="3" style="stroke: #383838; stroke-width: 1.0;" width="119" x="768" y="56"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="763" y="61"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="763" y="79.9688"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="99" x="778" y="77.1387">vizchange-stats</text><ellipse cx="324.6777" cy="171.8774" fill="#F8F8F8" rx="20.6777" ry="12.8774" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="25" x="312.1777" y="175.3618">axis</text><ellipse cx="57.6482" cy="390.8774" fill="#F8F8F8" rx="37.6482" ry="12.8774" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="49" x="33.1482" y="394.3618">bundle</text><ellipse cx="497.2237" cy="414.0447" fill="#F8F8F8" rx="55.7237" ry="13.5447" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="79" x="457.7237" y="417.5291">charts/struct</text><ellipse cx="650.4767" cy="396.8774" fill="#F8F8F8" rx="40.4767" ry="12.8774" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="53" x="623.9767" y="400.3618">d3-map</text><ellipse cx="324.5667" cy="358.8133" fill="#F8F8F8" rx="59.5667" ry="14.3133" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="89" x="280.0667" y="362.2977">dataset/struct</text><ellipse cx="497.0061" cy="218.8774" fill="#F8F8F8" rx="23.5061" ry="12.8774" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="29" x="482.5061" y="222.3618">date</text><ellipse cx="497.1236" cy="170.8247" fill="#F8F8F8" rx="82.1236" ry="18.8247" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="142" x="426.1236" y="174.3091">highcharts_config/base</text><ellipse cx="57.6849" cy="433.2479" fill="#F8F8F8" rx="15.1849" ry="12.7479" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="17" x="49.1849" y="436.7323">lib</text><ellipse cx="650.7132" cy="506.8774" fill="#F8F8F8" rx="24.2132" ry="12.8774" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="30" x="635.7132" y="510.3618">map</text><!--MD5=[416ee2bcbda739d3f41d6e451c21846f]
+entity _map_bundle--><rect fill="#F8F8F8" height="33.9688" rx="3" ry="3" style="stroke: #383838; stroke-width: 1.0;" width="103" x="6" y="328"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="1" y="333"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="1" y="351.9688"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="83" x="16" y="349.1387">map.bundle</text><ellipse cx="186.8406" cy="307.8774" fill="#F8F8F8" rx="46.8406" ry="12.8774" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="62" x="155.8406" y="311.3618">metaMngr</text><ellipse cx="324.3553" cy="127.8774" fill="#F8F8F8" rx="38.3553" ry="12.8774" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="50" x="299.3553" y="131.3618">render</text><ellipse cx="496.9203" cy="54.8774" fill="#F8F8F8" rx="24.9203" ry="12.8774" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="481.4203" y="58.3618">serie</text><ellipse cx="324.734" cy="217.8774" fill="#F8F8F8" rx="36.234" ry="12.8774" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="47" x="301.234" y="221.3618">tooltips</text><!--MD5=[e40bae8e8127eb267fb6ec2e32342f5e]
+link axis to date--><path d="M343.287,177.332 C361.317,182.698 390.037,191.14 415,198 C433.375,203.05 454.185,208.438 470.112,212.492 " fill="none" id="axis-&gt;date" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="475.315,213.813,467.5758,207.7217,470.4687,212.5828,465.6075,215.4758,475.315,213.813" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[739d94162b44dd88e41a25ea1b2bb873]
+link charts/struct to jquery--><path d="M543.913,421.335 C583.45,426.146 641.747,429.627 691,418 C710.344,413.433 712.397,404.999 731,398 C751.234,390.388 774.714,384.207 793.329,379.896 " fill="none" id="charts/struct-&gt;jquery" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="798.444,378.73,788.7801,376.8303,793.5691,379.8413,790.5581,384.6302,798.444,378.73" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[1c3a994d0ef76fb7d22354c6f3683e80]
+link <b>d3-map</b> to jquery--><path d="M688.186,391.969 C719.262,387.707 763.425,381.65 793.427,377.536 " fill="none" id="&lt;b&gt;d3-map&lt;/b&gt;-&gt;jquery" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="798.486,376.842,789.0256,374.1033,793.5325,377.5221,790.1137,382.029,798.486,376.842" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[4834e45ad210213ef8f45543d23c1208]
+link dataset/struct to charts/struct--><path d="M361.242,370.53 C389.581,379.671 429.089,392.416 458,401.742 " fill="none" id="dataset/struct-&gt;charts/struct" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="462.907,403.325,455.5705,396.7542,458.1487,401.7894,453.1135,404.3675,462.907,403.325" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[40568b98eeb86a55703a3f8604f61c6d]
+link dataset/struct to climate-plots-helper--><path d="M360.205,347.228 C376.73,341.758 396.811,335.306 415,330 C531.55,295.997 668.196,261.519 751.006,241.212 " fill="none" id="dataset/struct-&gt;climate-plots-helper" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="755.89,240.016,746.197,238.2705,751.0334,241.2048,748.0991,246.0411,755.89,240.016" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[391da5c873b228447d6187d929644e57]
+link dataset/struct to jquery--><path d="M383.952,360.633 C489.655,363.587 709.375,369.727 793.106,372.067 " fill="none" id="dataset/struct-&gt;jquery" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="798.422,372.215,789.5375,367.9646,793.424,372.075,789.3135,375.9615,798.422,372.215" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[9509bd46c2f321604f2109c37ed576b3]
+link dataset/struct to papaparse--><path d="M379.426,353.272 C391.146,352.112 403.483,350.957 415,350 C545.992,339.12 700.743,329.959 777.802,325.647 " fill="none" id="dataset/struct-&gt;papaparse" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="783.215,325.345,774.0061,321.8526,778.2228,325.6235,774.4518,329.8402,783.215,325.345" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[920218c421a525faa37f80125cb800fd]
+link date to climate-plots-helper--><path d="M520.579,219.275 C567.01,219.84 675.08,221.156 749.492,222.062 " fill="none" id="date-&gt;climate-plots-helper" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="754.79,222.127,745.8398,218.0167,749.7904,222.0656,745.7415,226.0161,754.79,222.127" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[6596cfde638e8d08d73c21d396d44f42]
+link highcharts_config/base to climate-plots-helper--><path d="M565.27,181.648 C618.839,190.128 693.852,202.002 749.759,210.852 " fill="none" id="highcharts_config/base-&gt;climate-plots-helper" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="754.768,211.645,746.5037,206.2876,749.8294,210.8636,745.2535,214.1893,754.768,211.645" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[fbe4cf9602576fd5418bcc7b7294642b]
+link <b>lib</b> to dataset/struct--><path d="M72.0057,429.229 C109.861,418.658 218.227,388.397 279.646,371.246 " fill="none" id="&lt;b&gt;lib&lt;/b&gt;-&gt;dataset/struct" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="284.712,369.831,274.9675,368.4008,279.8965,371.1767,277.1206,376.1056,284.712,369.831" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[fdeb28cdb51d7477ebc9c4a052b6a818]
+link <b>lib</b> to jquery--><path d="M72.2045,436.195 C111.241,445.0053 226.462,469 323.5,469 C323.5,469 323.5,469 651.5,469 C693.854,469 692.121,434.989 723,406 C726.666,402.558 726.638,400.502 731,398 C750.025,387.089 773.893,380.839 793.008,377.317 " fill="none" id="&lt;b&gt;lib&lt;/b&gt;-&gt;jquery" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="798.266,376.395,788.7101,374.0106,793.3412,377.2591,790.0927,381.8902,798.266,376.395" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[8774660e4ba1a7004799bde34c3d1ac3]
+link <b>lib</b> to metaMngr--><path d="M71.9701,429.564 C82.782,426.324 97.931,420.658 109,412 C139.893,387.836 164.461,348.262 176.963,325.535 " fill="none" id="&lt;b&gt;lib&lt;/b&gt;-&gt;metaMngr" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="179.446,320.952,171.6427,326.961,177.0649,325.3486,178.6772,330.7708,179.446,320.952" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[b8439acadc816264d6e3120b0d5f9f44]
+link <b>lib</b> to query-string--><path d="M69.4134,441.418 C104.3073,467.4651 217.112,545 323.5,545 C323.5,545 323.5,545 651.5,545 C721.077,545 782.779,479.3003 810.695,444.327 " fill="none" id="&lt;b&gt;lib&lt;/b&gt;-&gt;query-string" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="813.93,440.221,805.2176,444.8139,810.8352,444.1481,811.501,449.7656,813.93,440.221" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[fb1ae8b249cee0e56403659e7a92083e]
+link <b>map</b> to jquery--><path d="M674.556,505.2864 C690.743,502.7822 711.482,496.6978 723,482 C734.566,467.2409 718.851,412.283 731,398 C746.048,380.309 771.926,374.342 792.95,372.645 " fill="none" id="&lt;b&gt;map&lt;/b&gt;-&gt;jquery" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="798.182,372.3,788.9396,368.8973,793.1927,372.6271,789.463,376.8802,798.182,372.3" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[15ff0b9b60b929361ed4fc5e7c6f2a99]
+link metaMngr to remarkable--><path d="M220.975,298.882 C277.019,284.213 394.645,257 496,257 C496,257 496,257 651.5,257 C693.809,257 741.634,261.695 776.583,265.999 " fill="none" id="metaMngr-&gt;remarkable" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="781.644,266.63,773.208,261.5473,776.6824,266.0114,772.2183,269.4858,781.644,266.63" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[12bbd2336a21bcab3c60fd8abd365fab]
+link <b>render</b> to axis--><path d="M324.5,141.052 C324.5,145.337 324.5,149.622 324.5,153.907 " fill="none" id="&lt;b&gt;render&lt;/b&gt;-&gt;axis" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="324.5,158.938,328.5,149.938,324.5,153.938,320.5,149.938,324.5,158.938" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[ef6cbbaa6cc341a9bfa411337c7620d9]
+link <b>render</b> to highcharts--><path d="M358.509,121.583 C375.343,118.63 396.184,115.463 415,114 C551.477,103.39 586.24,108.065 723,114 C741.616,114.808 762.064,116.429 779.832,118.076 " fill="none" id="&lt;b&gt;render&lt;/b&gt;-&gt;highcharts" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="785.255,118.588,776.6694,113.7623,780.277,118.1195,775.9198,121.7271,785.255,118.588" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[53bf0490fb8cfc935cc0f5390f0dd425]
+link <b>render</b> to highcharts_config/base--><path d="M355.982,135.688 C378.164,141.282 408.926,149.04 435.968,155.86 " fill="none" id="&lt;b&gt;render&lt;/b&gt;-&gt;highcharts_config/base" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="440.971,157.122,433.2225,151.0425,436.1228,155.8992,431.2661,158.7996,440.971,157.122" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[84cad4422ab1fd880c4d76328a68230e]
+link <b>render</b> to jquery-contextmenu--><path d="M362.916,129.733 C412.417,132.17 502.359,137.096 579,144 C636.8,149.207 701.983,156.919 750.941,163.082 " fill="none" id="&lt;b&gt;render&lt;/b&gt;-&gt;jquery-contextmenu" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="755.926,163.711,747.4974,158.616,750.9653,163.0852,746.4961,166.5531,755.926,163.711" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[00c706e68798952c3544b21195b633d3]
+link <b>render</b> to serie--><path d="M344.183,116.604 C361.938,106.11 389.621,90.605 415,80 C432.568,72.659 453.067,66.353 469.047,61.91 " fill="none" id="&lt;b&gt;render&lt;/b&gt;-&gt;serie" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="474.282,60.476,464.5453,58.9938,469.4594,61.7959,466.6572,66.71,474.282,60.476" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[a8effcf63b5b6262fb5e9058be13e2e2]
+link <b>render</b> to tooltips--><path d="M288.978,133.26 C273.921,137.502 257.93,145.163 249.5,159 C243.488,168.868 243.488,175.132 249.5,185 C257.612,198.316 272.527,206.279 286.932,211.031 " fill="none" id="&lt;b&gt;render&lt;/b&gt;-&gt;tooltips" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="291.787,212.523,284.3592,206.0556,287.0076,211.0542,282.009,213.7026,291.787,212.523" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[1d1cd7bce9401b75dcf8f159648e30a7]
+link serie to vizchange-stats--><path d="M521.89,56.309 C571.921,59.05 689.159,65.474 762.726,69.506 " fill="none" id="serie-&gt;vizchange-stats" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="767.946,69.792,759.1778,65.3067,762.9535,69.5191,758.7411,73.2948,767.946,69.792" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[946f67646f8a2d47f261526753e951c8]
+link tooltips to date--><path d="M360.828,218.207 C392.599,218.394 438.654,218.664 467.96,218.836 " fill="none" id="tooltips-&gt;date" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="473.229,218.866,464.2532,214.8121,468.2291,218.836,464.2052,222.8119,473.229,218.866" style="stroke: #000000; stroke-width: 0.5;"/><script type="text/plantuml"><![CDATA[MD5=[491866c41c85026d402abf76264a599c]
+@startuml
+
+scale max 1920 width
+left to right direction
+
+skinparam nodesep 16
+skinparam ranksep 31
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName Tahoma
+skinparam defaultFontSize 12
+skinparam roundCorner 6
+skinparam dpi 150
+skinparam arrowColor black
+skinparam arrowThickness 0.5
+skinparam packageTitleAlignment left
+
+skinparam usecase {
+  borderThickness 0.5
+}
+
+skinparam rectangle {
+  borderThickness 0.5
+}
+
+skinparam component {
+  borderThickness 1
+}
+
+
+(axis)
+(<b>bundle</b>)
+(charts/struct)
+(<b>d3-map</b>)
+(dataset/struct)
+(date)
+(highcharts_config/base)
+(<b>lib</b>)
+(<b>map</b>)
+[<b>map.bundle</b>] as _map_bundle
+(metaMngr)
+(<b>render</b>)
+(serie)
+(tooltips)
+
+package "Dependencies" {
+  [climate-plots-helper]
+  [highcharts]
+  [jquery]
+  [jquery-contextmenu]
+  [papaparse]
+  [query-string]
+  [remarkable]
+  [vizchange-stats]
+}
+
+(axis) --> (date)
+(charts/struct) ----> [jquery]
+(<b>d3-map</b>) ---[thickness=1]> [jquery]
+(dataset/struct) --> (charts/struct)
+(dataset/struct) ----> [climate-plots-helper]
+(dataset/struct) ----> [jquery]
+(dataset/struct) ----> [papaparse]
+(date) ----> [climate-plots-helper]
+(highcharts_config/base) ----> [climate-plots-helper]
+(<b>lib</b>) ---[thickness=1]> (dataset/struct)
+(<b>lib</b>) --[thickness=1]> [jquery]
+(<b>lib</b>) --[thickness=1]> (metaMngr)
+(<b>lib</b>) --[thickness=1]> [query-string]
+(<b>map</b>) ---[thickness=1]> [jquery]
+(metaMngr) ----> [remarkable]
+(<b>render</b>) -[thickness=1]> (axis)
+(<b>render</b>) ----[thickness=1]> [highcharts]
+(<b>render</b>) -[thickness=1]> (highcharts_config/base)
+(<b>render</b>) ----[thickness=1]> [jquery-contextmenu]
+(<b>render</b>) -[thickness=1]> (serie)
+(<b>render</b>) -[thickness=1]> (tooltips)
+(serie) ----> [vizchange-stats]
+(tooltips) --> (date)
+
+@enduml
+
+
+' View and edit on https://arkit.pro
+]]></script></g></svg>
