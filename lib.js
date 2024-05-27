@@ -41,13 +41,9 @@ const {meta} = require("./modules/config/metaMngr.js");
 const stationTypeMap = require("./static/charts/stationTypeMap.json");
 module.exports = {
 	renderFromData (id, config_id) {
-		console.log('text');
 		let config_element = document.querySelector(config_id)
 		let config = {}
 		config.set = config_element.dataset.set;
-		/*
-		//console.log('query', config_element.dataset)
-		 */
 
 		if(config.set === undefined) config.set = document.getElementById("set").value
 		config.station = config_element.dataset.name;
@@ -58,7 +54,6 @@ module.exports = {
 
 		config.hostUrl = config_element.dataset.hostUrl
 		if(config.hostUrl === undefined) config.hostUrl = window.location.origin
-		console.log('parsed', config)
 		this.render(document.getElementById(id), Object.assign({}, config))
 	},
 	render (element, config) {
