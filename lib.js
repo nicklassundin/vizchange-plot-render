@@ -52,6 +52,7 @@ module.exports = {
 		config.station = config_element.dataset.name;
 		config.id = config_element.dataset.id;
 		config.coordinates = {}
+		console.log(config_element.dataset.latitude, config_element.dataset.longitude)
 		config.coordinates.latitude = Number(config_element.dataset.latitude)
 		config.coordinates.longitude = Number(config_element.dataset.longitude)
 
@@ -63,7 +64,6 @@ module.exports = {
 		this.render(document.getElementById(id), Object.assign({}, config))
 	},
 	render (element, config) {
-		console.log('text');
 		global.hostUrl = config.hostUrl
 
 		let plot = sets[config.set] ? Object.values(sets[config.set])[0] : config.set
