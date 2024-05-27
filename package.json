@@ -66,7 +66,7 @@
     "url": "^0.11.0",
     "utils": "^0.3.1",
     "vizchange-smhi": "^1.0.1",
-    "vizchange-stats": "1.17.*"
+    "vizchange-stats": "^1.17.20"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^4.31.2",
@@ -102,7 +102,10 @@
   "arkit": {
     "$schema": "https://arkit.pro/schema.json",
     "output": {
-      "path": ["docs/arkit.svg", "docs/arkit.png"]
+      "path": [
+        "docs/arkit.svg",
+        "docs/arkit.png"
+      ]
     }
   }
 }

@@ -6,6 +6,7 @@ global.nav_lang = "en";
 const constant = require("./static/const.json");
 global.startYear = constant.startYear;
 //global.endYear = constant.endYear;
+// TODO should be fixed so it works to set corrent year as end year but it doesn't work
 global.endYear = (new Date()).getFullYear();
 global.baselineLower = constant.baselineLower;
 global.baselineUpper = constant.baselineUpper;
@@ -57,9 +58,7 @@ module.exports = {
 
 		config.hostUrl = config_element.dataset.hostUrl
 		if(config.hostUrl === undefined) config.hostUrl = window.location.origin
-		/*
-		//console.log('parsed', config)
-		 */
+		console.log('parsed', config)
 		this.render(document.getElementById(id), Object.assign({}, config))
 	},
 	render (element, config) {
