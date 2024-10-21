@@ -269,7 +269,6 @@ export class Serie {
 		if (!preset.color) {
 			preset.color = config.colour;
 		}
-		console.log(config)
 		if (config.borderColor) {
 			preset.borderColor = config.borderColor;
 		}
