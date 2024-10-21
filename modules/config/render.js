@@ -295,7 +295,7 @@ class Chart {
             const s = meta.series[key].preset;
             try {
                 //	if(config[index] !== undefined) meta.series[index].prime = config[index]
-                let serie = (new Serie(meta, s, key, id, index)).serie
+                let serie = (new Serie(meta, s, key, id, index))[s]
                 let complete = serie.complete
 
                 // TODO should be inside class Serie
@@ -305,38 +305,7 @@ class Chart {
                 }
                 this.chart.addSeries(complete)
 
-                /*
-                const serie = (meta.selector ?
-                    seriesBuild[s](
-                        meta,
-                        data.values[98],
-                        s,
-                        key) :  seriesBuild[s](
-                            meta,
-                            data,
-                            s,
-                            key
-                        ))
-
-                 */
-
-
-                //this.chart.addSeries(serie.incomplete);
-                //series.push(serie.complete)
-                /*
-                serie.complete.then(ser => {
-                    const width = $(`#${id}`)[0].offsetWidth;
-                    if (ser.marker) {
-                        ser.marker.radius = ser.marker.radius * width / 800;
-                    }
-                    $(`#${id}`).highcharts().series[index].update(ser)
-                })
-                 */
             } catch (error) {
-                // //console.log("meta",meta)
-                // //console.log("data",data);
-                // //console.log("key",key);
-                // //console.log("series",series);
                 throw error;
 
             }
@@ -535,10 +504,6 @@ class Chart {
                         );
                     }
                 } catch (error) {
-                    //console.log(key);
-                    //console.log(meta.series[key]);
-                    //console.log(index);
-                    //console.log($(`#${id}`).highcharts().series);
                     throw error;
                 }
             });
@@ -650,10 +615,6 @@ class Chart {
             })
         }
         try {
-            ////console.log('meta', meta)
-            ////console.log('group', group)
-            ////console.log(group.xAxis.categories)
-            ////console.log('meta.period', meta.period)
             this.chart.update({
                 "title": {
                     "text": title,
@@ -684,8 +645,10 @@ class Chart {
                     "gridLineWidth": group.xAxis.gridLineWidth,
                     "categories": meta.period ? Object.values(group.xAxis.categories).filter(each => typeof each === 'string').reverse() : undefined,
                     "crosshair": true,
-                    "max": meta.period ? 11 : (group.xAxis.type === undefined ? 2025 : null),
-                    "min": meta.period ? 2 : group.xAxis.min ? group.xAxis.min : startYear,
+                    "max": meta.period ? 11 : null,
+                    "min": meta.period ? 4 : null,
+                    //"max": meta.period ? 11 : (group.xAxis.type === undefined ? 2025 : null),
+                    //"min": meta.period ? 4 : group.xAxis.min ? group.xAxis.min : startYear,
                     "tickInterval": group.xAxis.ticketInterval
                 },
                 "yAxis": {

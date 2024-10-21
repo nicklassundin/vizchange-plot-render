@@ -1,9 +1,12 @@
 
-//console.log("Visual Change Library Restart");
-const $ = require("jquery");
+//const $ = require("jquery");
+import $ from "jquery";
 global.queryString = require("query-string");
 global.nav_lang = "en";
-const constant = require("./static/const.json");
+//const constant = require("./static/const.json");
+const constant = await import('./static/const.json', {
+	assert: { type: "json" }
+});
 global.startYear = constant.startYear;
 //global.endYear = constant.endYear;
 // TODO should be fixed so it works to set corrent year as end year but it doesn't work
@@ -32,14 +35,21 @@ global.variables = {
 	"metas": {}
 };
 
-const charts = require("./modules/config/dataset/struct.js").struct;
-const sets = require("./static/preset.json");
+//const charts = require("./modules/config/dataset/struct.js").struct;
+import struct from "./modules/config/dataset/struct.js";
+const charts = await struct;
+//const sets = require("./static/preset.json");
+import sets from "./static/preset.json";
 // exports.stats = require("./stats/config.js");
 
-const {meta} = require("./modules/config/metaMngr.js");
+//const {meta} = require("./modules/config/metaMngr.js");
+import {meta} from "./modules/config/metaMngr.js";
 
-const stationTypeMap = require("./static/charts/stationTypeMap.json");
-module.exports = {
+//const stationTypeMap = require("./static/charts/stationTypeMap.json");
+const stationTypeMap = await import('./static/charts/stationTypeMap.json', {
+	assert: { type: "json" }
+});
+export default {
 	renderFromData (id, config_id) {
 		let config_element = document.querySelector(config_id)
 		let config = {}

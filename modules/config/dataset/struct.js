@@ -1,14 +1,14 @@
 const $ = require("jquery");
 
-const Papa = require("papaparse");
+//const Papa = require("papaparse");
+import Papa from 'papaparse';
 // const help = require("../../helpers.js");
-const help = require('climate-plots-helper');
+//const help = require('climate-plots-helper');
+import help from 'climate-plots-helper';
 
-const {createDiv} = require("../charts/struct.js"),
-
-	// renderer = require("../renderer.js").render;
-	renderer = require("../render.js").render;
-
+//const {createDiv} = require("../charts/struct.js"),
+import {createDiv} from '../charts/struct.js';
+import renderer from '../render.js';
 //const stats = require('vizchange-stats')
 
 
@@ -65,134 +65,133 @@ var tagApply = function (data, tags) {
 // /////
 
 // Var merged = require('../../../static/modules.config.charts.merge.json');
-const container = {},
+const container = {}
 
 	// /////
 
-	struct = {
-		"type": undefined,
-		"config": undefined,
-		"html" (config) {
+export default {
+	"type": undefined,
+	"config": undefined,
+	"html" (config) {
 
-			const {id} = config.files.stationDef,
-				{subset} = config.files;
+		const {id} = config.files.stationDef,
+			{subset} = config.files;
 
-			/*
-			 * If(subset){
-			 * Subset = subset.subset;
-			 * Var div = document.createElement("div");
-			 * Subset.sets.forEach(month => {
-			 * Div.appendChild(createDiv(id+'_'+month));
-			 * })
-			 * }else{
-			 */
-			return createDiv(
-				config,
-				false
-			);
+		/*
+         * If(subset){
+         * Subset = subset.subset;
+         * Var div = document.createElement("div");
+         * Subset.sets.forEach(month => {
+         * Div.appendChild(createDiv(id+'_'+month));
+         * })
+         * }else{
+         */
+		return createDiv(
+			config,
+			false
+		);
 
-			/*
-			 * }
-			 * Return div
-			 */
+		/*
+         * }
+         * Return div
+         */
 
-		},
-		"build" (config, div) {
+	},
+	"build" (config, div) {
 
-			this.config = config;
-			const {ref} = config.files,
-				{id} = ref;
-			this.metaRef[id] = config;
-			const {stationType} = config.files.stationDef,
-				{type} = config.files.ref;
-			this.type = type;
-			div.appendChild(this.html(config));
-			if (!container[type]) {
+		this.config = config;
+		const {ref} = config.files,
+			{id} = ref;
+		this.metaRef[id] = config;
+		const {stationType} = config.files.stationDef,
+			{type} = config.files.ref;
+		this.type = type;
+		div.appendChild(this.html(config));
+		if (!container[type]) {
 
-				container[type] = this.create(
-					id,
-					config
-				);
-
-			}
-			container[type].contFunc(
-				false,
+			container[type] = this.create(
 				id,
-				container[type].metaRef[id]
+				config
 			);
-			container[type].init(id);
-			return container[type];
-
-		},
-		"file": undefined,
-		"filePath": undefined,
-		"preset": undefined,
-		"cached": {},
-		"parser": undefined,
-		"render": renderer,
-		"metaRef": {},
-		"contFunc" (reset = false, id, config) {
-			id = config.files.stationDef.id;
-			if (!this.metaRef[id]) {
-				this.metaRef[id] = config;
-			}
-			return this;
-		},
-		"init" (id) {
-			let tag = this.metaRef[id].files.ref.tag.data,
-				// Var render = this.render;
-				meta = this.metaRef[id],
-				st_id = meta.files.stationDef.id;
-			this.render.setup(meta);
-			if (!Array.isArray(tag)) {
-
-				tag = [tag];
-
-			}
-			this.render.initiate(
-				st_id
-			);
-
-			return this;
-
-		},
-		"clone" () {
-
-			return {...this};
-
-		},
-		"create" (id, config) {
-
-			/*
-			 * //console.log(id)
-			 * //console.log(config)
-			 */
-			if (!this.metaRef[id]) {
-
-				this.metaRef[id] = {};
-				$.extend(
-					true,
-					this.metaRef[id],
-					config
-				);
-
-			}
-			let cfg = config.files.config.parse,
-				{file} = cfg,
-				{preset} = cfg,
-				{local} = cfg,
-				// //console.log(file)
-				res = this.clone();
-			res.metRef = this.metaRef[id];
-			const station = config.files.stationDef.stationType.data;
-			// res.filePath = (files) => files.map((x) => filePath.station(
-			// x,
-			// station
-			// ));
-			res.preset = preset;
-			// res.reader = Papa.parse;
-			return res;
 
 		}
-	};
-exports.struct = struct;
+		container[type].contFunc(
+			false,
+			id,
+			container[type].metaRef[id]
+		);
+		container[type].init(id);
+		return container[type];
+
+	},
+	"file": undefined,
+	"filePath": undefined,
+	"preset": undefined,
+	"cached": {},
+	"parser": undefined,
+	"render": renderer.render,
+	"metaRef": {},
+	"contFunc" (reset = false, id, config) {
+		id = config.files.stationDef.id;
+		if (!this.metaRef[id]) {
+			this.metaRef[id] = config;
+		}
+		return this;
+	},
+	"init" (id) {
+		let tag = this.metaRef[id].files.ref.tag.data,
+			// Var render = this.render;
+			meta = this.metaRef[id],
+			st_id = meta.files.stationDef.id;
+		this.render.setup(meta);
+		if (!Array.isArray(tag)) {
+
+			tag = [tag];
+
+		}
+		this.render.initiate(
+			st_id
+		);
+
+		return this;
+
+	},
+	"clone" () {
+
+		return {...this};
+
+	},
+	"create" (id, config) {
+
+		/*
+         * //console.log(id)
+         * //console.log(config)
+         */
+		if (!this.metaRef[id]) {
+
+			this.metaRef[id] = {};
+			$.extend(
+				true,
+				this.metaRef[id],
+				config
+			);
+
+		}
+		let cfg = config.files.config.parse,
+			{file} = cfg,
+			{preset} = cfg,
+			{local} = cfg,
+			// //console.log(file)
+			res = this.clone();
+		res.metRef = this.metaRef[id];
+		const station = config.files.stationDef.stationType.data;
+		// res.filePath = (files) => files.map((x) => filePath.station(
+		// x,
+		// station
+		// ));
+		res.preset = preset;
+		// res.reader = Papa.parse;
+		return res;
+
+	}
+};
