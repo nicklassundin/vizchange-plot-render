@@ -62,7 +62,10 @@ export default {
 		config.coordinates.latitude = Number(config_element.dataset.latitude)
 		config.coordinates.longitude = Number(config_element.dataset.longitude)
 
+		config.category = config_element.dataset.cat
 		config.hostUrl = config_element.dataset.hostUrl
+		config.KnKod = config_element.dataset.knkod
+		config.LnKod = config_element.dataset.lnkod
 		if(config.hostUrl === undefined) config.hostUrl = window.location.origin
 		this.render(document.getElementById(id), Object.assign({}, config))
 	},

@@ -43,7 +43,9 @@ export class Serie {
 			case 'annualTemperatures':
 				types.push('annual_temperature')
 				break
-			case 'slideTemperaturesSpring':
+			case 'slideMonthlyTemperatures':
+				types.push('annual_jan_temperature')
+				break
 			case 'TemperaturesSpring':
 				types.push('annual_spring_temperature')
 				break;
@@ -218,7 +220,8 @@ export class Serie {
 			coordinates: Object.values(this.coordinates).join(','),
 			types: types.join(','),
 			baseline: `${this.baseline.start},${this.baseline.end}`,
-
+			LnKod: this.meta.stationDef.LnKod,
+			KnKod: this.meta.stationDef.KnKod,
 		};
 		switch (types[0]){
 			case 'perma':
@@ -231,6 +234,7 @@ export class Serie {
 		}
 		try {
 			// Fetch data from the Python API
+			console.log(params)
 			const response = await axios.get(getBaseUrl(), { params });
 			let formated = this.formatData(response.data, types[0])
 			return formated
