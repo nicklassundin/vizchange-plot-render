@@ -79,7 +79,7 @@ export default {
 		}else{
 			config.plot = plot
 		}
-		config.id = `${config.station}_${config.plot}`
+		config.id = `${config.station.replace(' ', '')}_${config.plot}`
 		let stationType = stationTypeMap[config.station];
 		if(stationType === undefined) {
 			stationType = {

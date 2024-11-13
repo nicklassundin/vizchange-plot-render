@@ -190,6 +190,7 @@ export class Serie {
 			default:
 				input = input.annual
 		}
+		console.log('input', input)
 		return Object.entries(input).map(([year, entry]) => {
 			let y = entry[`${type}`]
 			let x = getX(year)
@@ -234,7 +235,6 @@ export class Serie {
 		}
 		try {
 			// Fetch data from the Python API
-			console.log(params)
 			const response = await axios.get(getBaseUrl(), { params });
 			let formated = this.formatData(response.data, types[0])
 			return formated
