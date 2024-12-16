@@ -1,11 +1,28 @@
 import axios from 'axios';
 
+/**
 const getBaseUrl = () => {
 	// Change 'localhost' to the actual domain or IP if necessary.
 	// Port can be dynamically adjusted if needed
 	const hostname = window.location.hostname;  // This will take the domain or localhost
 	const pythonPort = 80;  // Change this to the actual port where your Python API is running
 	return `http://${hostname}:${pythonPort}/python/data`;
+};
+ */
+
+const getBaseUrl = () => {
+	const hostname = window.location.hostname;
+
+	// Check if it's a live version (production)
+	const isLive = window.location.protocol === 'https:' || hostname !== 'localhost';
+
+	// Use HTTPS for live, HTTP for development
+	const protocol = isLive ? 'https' : 'http';
+
+	// Adjust port only for local development
+	const pythonPort = isLive ? '' : ':5000'; // Use port 5000 for development, none for live
+
+	return `${protocol}://${hostname}${pythonPort}/python/data`;
 };
 
 export class Serie {
