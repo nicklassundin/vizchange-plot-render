@@ -20,8 +20,8 @@ const getBaseUrl = () => {
 	const protocol = isLive ? 'https' : 'http';
 
 	// Adjust port only for local development
-	const pythonPort = isLive ? '' : ':5000'; // Use port 5000 for development, none for live
-
+	//const pythonPort = isLive ? '' : ':5000'; // Use port 5000 for development, none for live
+	const pythonPort = ''
 	return `${protocol}://${hostname}${pythonPort}/python/data`;
 };
 
