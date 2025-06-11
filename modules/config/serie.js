@@ -1,5 +1,6 @@
 
-const stats = require('vizchange-stats')
+// const stats = require('vizchange-stats')
+const stats = require('../stats/module.js')
 
 
 const config = require("../../static/server.config.json");

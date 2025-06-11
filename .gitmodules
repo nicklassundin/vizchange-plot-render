@@ -1,0 +1,3 @@
+[submodule "modules/stats"]
+	path = modules/stats
+	url = https://github.com/nicklassundin/vizchange-stats.git
