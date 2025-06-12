@@ -14,6 +14,7 @@ exports.formatters = function (meta) {
             try {
                 let tooltip = `<span style="font-size: 10px">${this.x}/${this.x+1}</span><br/>`;
                 this.points.forEach((point) => {
+			console.log(this.points)
                     const dec = point.series.options.tooltip.valueDecimals;
                     tooltip += `<span style="color:${point.color}">\u25CF</span> ${point.series.name
                     }${meta.unitType

@@ -72,7 +72,7 @@ class Serie {
 				this.station = meta.stationDef.station;
 				this.tags = Object.values(meta.tag.data).concat(['shortValues']);
 				break;
-				 */
+				*/
 			case "extreme":
 
 				this.station = meta.stationDef.station
@@ -95,7 +95,7 @@ class Serie {
 	get 'serie' () {
 		return this[this.type](this.meta, this.type, this.key, this.id)
 	}
-	async 'data' (st, tgs, ...sr) {
+	async "data" (st, tgs, ...sr) {
 		let station = this.station;
 		let tags = this.tags
 		let specs = JSON.parse(JSON.stringify(this.specs));
@@ -137,17 +137,6 @@ class Serie {
 				}
 			default:
 		}
-		//
-		//
-		//
-		/**
-		 tags = tags.join('/')
-		 ser = ser.join('/')
-		 let url = tags.length <= 0 ? `station/${station}/${type}/${ser}` : `station/${station}/${type}/${tags}/${ser}`;
-		 let config = stats.configs.live;
-		 config.station = station;
-		 config.type = type;
-		 */
 		// TODO change if needed shortValeus
 		specs.station = station;
 		specs.type = type;
@@ -156,18 +145,7 @@ class Serie {
 
 		let params = [type].concat(tags)
 
-		////console.log('serie.tags', tags)
-
-		////console.log('serie.params', params)
-		////console.log('serie.specs', specs)
-		////console.log('serie.tags', tags)
-
-
-
 		// TODO switch between pre calc
-		////console.log(`${specs.url}/precalculated/${specs.station}/${specs.type}/${params.join('/')}`)
-		//return stats.getByParamsPreCalculated(specs, params).then(result => {
-		//switch (params[3]+params[4]){
 		let key = params[3]
 		if(specs.baseline.start !== 1961 || specs.baseline.end !== 1990){
 			//key += params[4]
@@ -234,6 +212,11 @@ class Serie {
 			default:
 				return stats.getByParams(specs, params).then(result => {
 					result = result.map(each => {
+						// each.then(point => {
+						// 	console.log("before")
+						// 	console.log(params)
+						// 	console.log(point)
+						// })
 						if(typeof each.then === 'function'){
 							return each
 						}else {
@@ -250,6 +233,11 @@ class Serie {
 						})
 					}
 					return result.map(each => {
+						// each.then(point => {
+						// 	console.log("after")
+						// 	console.log(params)
+						// 	console.log(point)
+						// })
 						return each
 					})
 				})
@@ -279,6 +267,7 @@ class Serie {
 			preset.borderColor = config.borderColor;
 		}
 		preset.type = config.type;
+
 
 		let complete = () => {
 			const incomp = {};
@@ -318,16 +307,17 @@ class Serie {
 				}
 
 
-				//return Promise.allSettled(promises).then(data => {
-				//	incomp.data = data.map(each => each.value).filter(each => each !== undefined);
-				//	return incomp;
-				//})
+				// return Promise.allSettled(promises).then(data => {
+				// 	incomp.data = data.map(each => each.value).filter(each => each !== undefined);
+				// 	return incomp;
+				// })
 			})
 			return incomp
 		};
 		return {
 			incomplete: preset,
 			complete: complete()
+				
 		}
 	}
 	get "max" () {
@@ -393,7 +383,7 @@ class Serie {
 				meta
 			);
 
-			 */
+*/
 		};
 	}
 	get "extreme-low" () {
@@ -412,8 +402,8 @@ class Serie {
 					"fillColor": meta.series.avg.colour,
 					"lineColor": meta.series.avg.borderColour,
 					"lineWidth": meta.series.avg.borderColour
-						? 1
-						: 0,
+					? 1
+					: 0,
 					"radius": 2
 				},
 				"promises": this.data(meta.stationDef.station,meta.tag.data, 'shortValues'),
@@ -693,7 +683,7 @@ class Serie {
 					"color": meta.series[Object.keys(meta.series)[this.callback]].colour,
 					"className": meta.series[Object.keys(meta.series)[this.callback]].className,
 					"promises": this.data(Object.keys(meta.series)[this.callback].toLowerCase()
-							.replace('ä','a').replace('å','a').replace('ö','o'),
+						.replace('ä','a').replace('å','a').replace('ö','o'),
 						meta.tag.data,
 						'yrly',
 						'shortValues'),
