@@ -74,7 +74,6 @@ class Serie {
 				break;
 				*/
 			case "extreme":
-
 				this.station = meta.stationDef.station
 				if (meta.extreme) {
 					this.tags = Object.values(meta.tag.data).concat([meta.extreme.type, meta.extreme.lim, 'shortValues']);
@@ -151,6 +150,7 @@ class Serie {
 			//key += params[4]
 		}
 		key += params[4]
+		console.log(type, key)
 		switch (key){
 			case 'lastshortValues':
 			case 'firstshortValues':
@@ -158,7 +158,7 @@ class Serie {
 			case 'first':
 				specs.url = specs['url_calc']
 				//console.log(specs)
-				return stats.getByParamsPreCalculated(specs, params).then(result => {
+				return stats.getByParams(specs, params).then(result => {
 					if(Array.isArray(result.data)) result = result.data
 					result = result.map(each => {
 						if(typeof each.then === 'function'){
@@ -190,7 +190,7 @@ class Serie {
 				params.push('baseline')
 				params.push('y')
 
-				return stats.getByParamsPreCalculated(specs, params).then(baseline => {
+				return stats.getByParams(specs, params).then(baseline => {
 					params1.pop()
 					params1.push('shortValues')
 					baseline = baseline.data
@@ -199,7 +199,7 @@ class Serie {
 					specs1.station = station;
 					specs1.type = type;
 					global.baselineValue = Math.floor(baseline*100)/100;
-					return stats.getByParamsPreCalculated(specs1, params1).then(result => {
+					return stats.getByParams(specs1, params1).then(result => {
 						return result.data.map(value => {
 
 							if(value === undefined) return Promise.resolve(undefined)
