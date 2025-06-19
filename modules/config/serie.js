@@ -12,6 +12,386 @@ configs.dates.end = global.endYear;
 
 const http = require('http');
 
+const axios = require('axios').create({
+	httpAgent: new http.Agent({
+		scheduling: 'fifo',
+		maxSockets: 1,
+		maxTotalSockts: 1,
+
+
+	})
+})
+
+
+checkIfSeasonOrMonth = (type) => {
+	// check if containing Winter, Spring, Summer, Autumn or jan
+	if (type.includes('winter') || type.includes('spring') || type.includes('summer') || type.includes('autumn')) {
+		return 'season';
+	}
+	if (type.includes('jan') || type.includes('feb') || type.includes('mar') || type.includes('apr') ||
+		type.includes('may') || type.includes('jun') || type.includes('jul') || type.includes('aug') ||
+		type.includes('sep') || type.includes('oct') || type.includes('nov') || type.includes('dec')) {
+		return 'month';
+	}
+
+	return type;
+}
+
+class DataHandler {
+	constructor(data, specs, subtype, baseline, station='', subtype2=[]) {
+		this.type = specs.stationDef.set+`-${subtype}`
+		this.values = data
+		// last element in str
+		console.log(subtype)
+
+		this.values = data;
+		this.baseline = baseline;
+		if (subtype == 'diff'){
+			this.calc = 'diff'
+		}
+		let val = subtype2[2] ? subtype2[2] : '20';
+		console.log(val)
+		// extract season
+		let p = this.type.split('-')[1];
+		let period = checkIfSeasonOrMonth(p);
+		this.type = this.type.replace(p, period);
+		console.log(this.type)
+		console.log(data[0])
+		switch (this.type){
+			case 'viz-annual-prec-diff':
+				this.yKey = 'annual_precipitation'
+				this.xKey = 'year'
+				break;
+			case 'viz-annual-prec-rain':
+				this.yKey = 'rain'
+				this.xKey = 'year'
+				break;
+			case 'viz-annual-prec-snow':
+				this.yKey = 'snow'
+				this.xKey = 'year'
+				break;
+			case 'viz-grow-weeks-avg':
+				this.yKey = 'weekly_grow_season_length'
+				this.xKey = 'year'
+				break;
+			case 'viz-grow-weeks-diff':
+				this.yKey = 'weekly_grow_season_length'
+				this.xKey = 'year'
+				break;
+			case 'viz-grow-days-avg':
+				this.yKey = 'grow_season_length'
+				this.xKey = 'year'
+				break;
+			case 'viz-grow-days-diff':
+				this.yKey = 'grow_season_length'
+				this.xKey = 'year'
+				break;
+			case 'viz-grow-first-avg':
+				this.yKey = 'first_frost'
+				this.xKey = 'year'
+				break;
+			case 'viz-grow-first-diff':
+				this.yKey = 'first_frost'
+				this.xKey = 'year'
+				break;
+			case 'viz-grow-last-avg':
+				this.yKey = 'last_frost'
+				this.xKey = 'year'
+				break;
+			case 'viz-grow-last-diff':
+				this.yKey = 'last_frost'
+				this.xKey = 'year'
+				break;
+			case 'viz-season-prec-diff':
+				this.yKey = 'precipitation_'+p
+				this.xKey = 'year'
+				break;
+			case 'viz-season-prec-rain':
+				this.yKey = 'rain_'+p
+				this.xKey = 'year'
+				break;
+			case 'viz-season-prec-snow':
+				this.yKey = 'snow_'+p
+				this.xKey = 'year'
+				break;
+			case 'viz-month-prec-diff':
+				this.yKey = 'precipitation'
+				this.xKey = 'year'
+				break;
+			case 'viz-month-prec-rain':
+				this.yKey = 'rain'
+				this.xKey = 'year'
+				break;
+			case 'viz-month-prec-snow':
+				this.yKey = 'snow'
+				this.xKey = 'year'
+				break;
+			case 'viz-annual-temp-glob-diff':
+				this.yKey = 'temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-annual-temp-nhem-diff':
+				this.yKey = 'temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-annual-temp-64n-90n-diff':
+				this.yKey = 'temperature'
+				this.xKey = 'year'
+				break;
+			// TODO next
+			case 'viz-annual-temp-max':
+				this.yKey = 'max_annual_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-annual-temp-min':
+				this.yKey = 'min_annual_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-annual-temp-avg':
+				this.yKey = 'avg_annual_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-annual-temp-diff':
+				this.yKey = 'avg_annual_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-season-temp-avg':
+				this.yKey = 'avg_temperature_'+p
+				this.xKey = 'year'
+				break;
+			case 'viz-season-temp-max':
+				this.yKey = 'max_temperature_'+p
+				this.xKey = 'year'
+				break;
+			case 'viz-season-temp-min':
+				this.yKey = 'min_temperature_'+p
+				this.xKey = 'year'
+				break;
+			case 'viz-season-temp-diff':
+				this.yKey = 'avg_temperature_'+p
+				this.xKey = 'year'
+				break;
+			case 'viz-month-temp-avg':
+				this.yKey = 'avg_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-month-temp-max':
+				this.yKey = 'max_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-month-temp-min':
+				this.yKey = 'min_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-month-temp-diff':
+				this.yKey = 'avg_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-perma-perma':
+				this.yKey = 'perma'
+				this.xKey = 'year'
+				this.calc = 'perma';
+				this.station = 'calm'
+				break;
+			case 'viz-lakeice-avg':
+				this.yKey = 'icetime'
+				this.xKey = 'winter_year'
+				break;
+			case 'viz-lakeice-diff':
+				this.yKey = 'icetime'
+				this.xKey = 'winter_year'
+				break;
+			case 'viz-lake-freeze-avg':
+				this.yKey = 'freezeup'
+				this.xKey = 'winter_year'
+				break;
+			case 'viz-lake-freeze-diff':
+				this.yKey = 'freezeup'
+				this.xKey = 'winter_year'
+				break;
+			case 'viz-lake-break-avg':
+				this.yKey = 'breakup'
+				this.xKey = 'winter_year'
+				break;
+			case 'viz-lake-break-diff':
+				this.yKey = 'breakup'
+				this.xKey = 'winter_year'
+				break;
+			case 'viz-lake-thick-iceThick':
+				this.yKey = 'max_thickness'
+				this.xKey = 'winter_year'
+				break; 
+			case 'viz-lake-thick-diff':
+				this.yKey = 'max_thickness'
+				this.xKey = 'winter_year'
+				break;
+			case 'viz-snowdepth-decade-period':
+				this.yKey = 'avg_snowdepth_deci'
+				this.xKey = 'month'
+				break;
+			case 'viz-snowdepth-period-period':
+				this.yKey = 'avg_snowdepth_deci'
+				this.xKey = 'month'
+				break;
+			case 'viz-snowdepth-annual-avg':
+				this.yKey = 'avg_snowdepth_deci'
+				this.xKey = 'year'
+				break;
+			case 'viz-carbon-co2':
+				this.yKey = 'co2'
+				this.xKey = 'datetime'
+				break;
+			case 'viz-extreme-temp-high-20-extreme':
+				this.yKey = 'temperature_extreme_'+val
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-temp-high-20-diff':
+				this.yKey = 'temperature_extreme_'+val
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-temp-low-10-extreme':
+				this.yKey = 'temperature_extreme_'+val
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-temp-low-10-diff':
+				this.yKey = 'temperature_extreme_'+val
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-temp-high-daily-extreme':
+				this.yKey = 'hottest_day_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-temp-high-daily-diff':
+				this.yKey = 'hottest_day'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-temp-low-daily-extreme':
+				this.yKey = 'coldest_day_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-temp-low-daily-diff':
+				this.yKey = 'coldest_day_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-temp-high-weekly-extreme':
+				this.yKey = 'warmest_week_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-temp-high-weekly-diff':
+				this.yKey = 'warmest_week_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-temp-low-weekly-extreme':
+				this.yKey = 'coldest_week_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-temp-low-weekly-diff':
+				this.yKey = 'coldest_week_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-temp-high-monthly-extreme':
+				this.yKey = 'warmest_month_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-temp-high-monthly-diff':
+				this.yKey = 'warmest_month_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-temp-low-monthly-extreme':
+				this.yKey = 'coldest_month_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-temp-low-monthly-diff':
+				this.yKey = 'coldest_month_temperature'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-prec-high-daily-extreme':
+				this.yKey = 'wettest_day_precipitation'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-prec-high-daily-diff':
+				this.yKey = 'wettest_day_precipitation'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-prec-low-daily-extreme':
+				this.yKey = 'driest_day_precipitation'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-prec-low-daily-diff':
+				this.yKey = 'driest_day_precipitation'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-prec-high-weekly-extreme':
+				this.yKey = 'wettest_week_precipitation'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-prec-high-weekly-diff':
+				this.yKey = 'wettest_week_precipitation'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-prec-low-weekly-extreme':
+				this.yKey = 'driest_week_precipitation'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-prec-low-weekly-diff':
+				this.yKey = 'driest_week_precipitation'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-prec-high-monthly-extreme':
+				this.yKey = 'wettest_month_precipitation'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-prec-high-monthly-diff':
+				this.yKey = 'wettest_month_precipitation'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-prec-low-monthly-extreme':
+				this.yKey = 'driest_month_precipitation'
+				this.xKey = 'year'
+				break;
+			case 'viz-extreme-prec-low-monthly-diff':
+				this.yKey = 'driest_month_precipitation'
+				this.xKey = 'year'
+				break;
+
+
+
+
+
+		}
+	}
+
+	get 'shortValues' (){
+		let diff = [];
+		let values = this.values
+		return values.map(each => {
+			let x = each[this.xKey]
+			let y = each[this.yKey]
+			if (this.xKey == 'datetime' ){
+				x = new Date(x).getTime();
+			}
+			if (this.calc === 'diff') {
+				if (x > this.baseline.start && x < this.baseline.end) {
+					diff.push(y);
+				}
+			}
+			return ({
+				x, 
+				y,
+				sort: each.sort ? each.sort : x,
+				station: each.station ? each.station : this.station
+			})
+		}).map((each) => {
+			if(diff.length > 0){
+				diff = diff.reduce((a, b) => a + b, 0) / diff.length;
+			}
+			each.y -= diff;
+			return each;
+		})
+	}
+}
+
+
 class Serie {
 	constructor(meta, type, key, id, callback){
 		this.meta = meta
@@ -21,7 +401,6 @@ class Serie {
 		this.callback = callback
 		this.specs = JSON.parse(JSON.stringify(configs))
 		this.specs.coordinates = meta.stationDef.coordinates
-		//console.log(this.specs.coordinates)
 		// TODO for redirect but not precalc
 		this.specs.url = `${hostUrl}/data/production/url`;
 		// TODO for redirect and precalc
@@ -49,6 +428,7 @@ class Serie {
 				this.station = meta.stationDef.station;
 				switch (key) {
 					case 'allTime':
+						this.specs.dates.type = 'Full';
 						break;
 					default:
 						this.specs.dates.start = Number(this.key)
@@ -95,154 +475,17 @@ class Serie {
 		return this[this.type](this.meta, this.type, this.key, this.id)
 	}
 	async "data" (st, tgs, ...sr) {
-		let station = this.station;
-		let tags = this.tags
-		let specs = JSON.parse(JSON.stringify(this.specs));
-		//let ser = this.ser
-		////console.log('station',station)
-		////console.log('tags',tags)
-		////console.log('sr',sr)
-		tags = Object.values(tags)
-		let type = tags.shift();
-		switch (type) {
-			case 'temperatures':
-				type = 'temperature' // TODO hotfix
-				if(tags[0] === 'monthly') {
-					tags.shift()
-				}
-				break;
-			case 'growingSeason':
-				// outdated TODO
-				type = 'temperature' // TODO hotfix
-				tags[0] = tags[0].replace('days', 'growDays');
-				tags[0] = tags[0].replace('weeks', 'growWeeks');
-				break;
-			case 'precipitation':
-				switch (sr[0]) {
-					case 'snow':
-					case 'rain':
-						// TODO hotfix tags to series insted in config
-						if(tags[0] === 'monthly') {
-							tags.shift()
-						}
-						tags.pop()
-						tags = tags.concat(sr)
-
-						break;
-					default:
-						if(tags[0] === 'monthly') {
-							tags.shift()
-						}
-				}
-			default:
+		let t = Object.values(tgs).concat(sr)
+		
+		let subtype = this.specs.dates.start;
+		if (this.specs.dates.type === 'Full') {
+			subtype = 'Full';
 		}
-		// TODO change if needed shortValeus
-		specs.station = station;
-		specs.type = type;
-		specs.baseline.start = global.baselineLower
-		specs.baseline.end = global.baselineUpper
-
-		let params = [type].concat(tags)
-
-		// TODO switch between pre calc
-		let key = params[3]
-		if(specs.baseline.start !== 1961 || specs.baseline.end !== 1990){
-			//key += params[4]
-		}
-		key += params[4]
-		console.log(type, key)
-		switch (key){
-			case 'lastshortValues':
-			case 'firstshortValues':
-			case 'last':
-			case 'first':
-				specs.url = specs['url_calc']
-				//console.log(specs)
-				return stats.getByParams(specs, params).then(result => {
-					if(Array.isArray(result.data)) result = result.data
-					result = result.map(each => {
-						if(typeof each.then === 'function'){
-							return each
-						}else {
-							return Promise.resolve(each)
-						}
-					})
-					return result
-				}).then(result => {
-					if(result.length > 12){
-						result[result.length-10].then(each => {
-							if(each.baseline){
-								global.baselineValue = Math.floor(each.baseline*100)/100;
-							}
-						})
-					}
-					return result.map(each => {
-						return each
-					})
-				})
-			case 'firstdifference':
-			case 'lastdifference':
-				specs.url = specs['url_calc']
-				let params1 = JSON.parse(JSON.stringify(params));
-
-
-				params.pop()
-				params.push('baseline')
-				params.push('y')
-
-				return stats.getByParams(specs, params).then(baseline => {
-					params1.pop()
-					params1.push('shortValues')
-					baseline = baseline.data
-					let specs1 = JSON.parse(JSON.stringify(this.specs))
-					specs1.url = this.specs['url_calc']
-					specs1.station = station;
-					specs1.type = type;
-					global.baselineValue = Math.floor(baseline*100)/100;
-					return stats.getByParams(specs1, params1).then(result => {
-						return result.data.map(value => {
-
-							if(value === undefined) return Promise.resolve(undefined)
-							value.y -= baseline;
-							value.baseline = baseline;
-							return Promise.resolve(value)
-						})
-					})
-				})
-			default:
-				return stats.getByParams(specs, params).then(result => {
-					result = result.map(each => {
-						// each.then(point => {
-						// 	console.log("before")
-						// 	console.log(params)
-						// 	console.log(point)
-						// })
-						if(typeof each.then === 'function'){
-							return each
-						}else {
-							return Promise.resolve(each)
-						}
-					})
-					return result
-				}).then(result => {
-					if(result.length > 12){
-						result[result.length-10].then(each => {
-							if(each.baseline){
-								global.baselineValue = Math.floor(each.baseline*100)/100;
-							}
-						})
-					}
-					return result.map(each => {
-						// each.then(point => {
-						// 	console.log("after")
-						// 	console.log(params)
-						// 	console.log(point)
-						// })
-						return each
-					})
-				})
-		}
-
+		let url = this.specs.url_calc + "/data" + `?type=${t}&station=${st}&specs=${this.meta.tag.render}&subtype=${subtype}`
+		// let url = this.specs.url_calc + "/data" + `?type=${t}&station=${st}&specs=${this.type}`
+		return axios.get(url).then(res => {
+			return new DataHandler(res.data, this.meta, this.type, this.specs.baseline, st.replace('calm', ''), sr)
+		})
 
 	}
 	'preset' (config, serie, meta) {
@@ -268,57 +511,12 @@ class Serie {
 		}
 		preset.type = config.type;
 
-
-		let complete = () => {
-			const incomp = {};
-			$.extend(true, incomp, preset)
-			if(config.group !== undefined) incomp.visible = (meta.groups[config.group].prime === undefined ? false : meta.groups[config.group].prime) && config.visible;
-			if(meta.period) incomp.visible = meta.period
-			incomp.promises.then((promises) => {
-				Promise.allSettled(promises).then(() => {
-					$(`#${this.id}`).highcharts().hideLoading();
-					$(`#${this.id}`).highcharts().redraw()
-				})
-				if(meta.tag.data[1] === 'all'){
-					Promise.allSettled(promises).then(all => {
-						all = all.map(each => each.value)
-						incomp.data = all
-						$(`#${this.id}`).highcharts().series[this.callback].update(incomp)
-					})
-				}else{
-					let len = promises.length;
-					promises.forEach((each, index) => {
-						each.then(point => {
-							if(point === undefined || isNaN(point.y)){
-							}else{
-								len -= 1;
-								switch (meta.period) {
-									case true:
-										point = point.y
-										$(`#${this.id}`).highcharts().series[this.callback].data[11-index].update(point)
-										break;
-									default:
-										let toUpdate = (len === 0) || (index % promises.length === 30)
-										$(`#${this.id}`).highcharts().series[this.callback].addPoint(point, toUpdate)
-								}
-							}
-						})
-					})
-				}
-
-
-				// return Promise.allSettled(promises).then(data => {
-				// 	incomp.data = data.map(each => each.value).filter(each => each !== undefined);
-				// 	return incomp;
-				// })
-			})
-			return incomp
-		};
-		return {
-			incomplete: preset,
-			complete: complete()
-				
-		}
+		preset.promises.then(() => {
+			$(`#${this.id}`).highcharts().hideLoading();
+			$(`#${this.id}`).highcharts().redraw()
+		})
+		if(config.group !== undefined) preset.visible = (meta.groups[config.group].prime === undefined ? false : meta.groups[config.group].prime) && config.visible;
+		return preset
 	}
 	get "max" () {
 		return (meta) => this.preset(
@@ -355,35 +553,6 @@ class Serie {
 				},
 				meta
 			);
-			/*
-			let tag = "extreme";
-			if (meta.extreme) {
-				tag += meta.extreme.type;
-			}
-			const config = {};
-			$.extend(
-				true,
-				config,
-				meta.series[tag],
-				meta.series[s]
-			);
-			let data = (() => {
-				if (meta.extreme) {
-					return this.data(meta.stationDef.station,meta.tag.data, 'occurrence', meta.extreme.type, meta.extreme.lim ,'shortValues')
-				}
-				return this.data(meta.stationDef.station,meta.tag.data,'shortValues');
-			})()
-
-			return this.preset(
-				config,
-				{
-					"promises": data,
-					"colorKey": 'y',
-				},
-				meta
-			);
-
-*/
 		};
 	}
 	get "extreme-low" () {
@@ -712,12 +881,13 @@ class Serie {
 				"dataSorting": {
 					"enabled": true,
 					"matchByName": true,
-					"sortKey": 'y'
+					"sortKey": 'sort'
 				}
 				// "tooltip": {"valueDecimals": meta.decimals}
 			},
 			meta)
 	}
+
 	get "co2" (){
 		return (meta) => this.preset(
 			meta.series.co2,
@@ -750,10 +920,7 @@ class Serie {
 				},
 				"zIndex": 6,
 				"tooltip": {"valueDecimals": meta.decimals},
-				"promises": this.data(meta.stationDef.station,meta.tag.data, 'shortValues').then(res => res.map(each => {
-					each.x = new Date(each.x)
-					return each
-				})),
+				"promises": this.data(meta.stationDef.station,meta.tag.data, 'shortValues')
 			}
 			,meta)
 	}
