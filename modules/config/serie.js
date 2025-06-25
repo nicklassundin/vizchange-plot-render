@@ -39,6 +39,7 @@ checkIfSeasonOrMonth = (type) => {
 
 class DataHandler {
 	constructor(data, specs, subtype, baseline, station='', subtype2=[]) {
+		console.log(data[0])
 		this.type = specs.stationDef.set+`-${subtype}`
 		this.values = data
 		// last element in str
@@ -89,18 +90,22 @@ class DataHandler {
 			case 'viz-grow-first-avg':
 				this.yKey = 'first_frost'
 				this.xKey = 'year'
+				this.zKey = 'first_frost_date'
 				break;
 			case 'viz-grow-first-diff':
 				this.yKey = 'first_frost'
 				this.xKey = 'year'
+				this.zKey = 'first_frost_date'
 				break;
 			case 'viz-grow-last-avg':
 				this.yKey = 'last_frost'
 				this.xKey = 'year'
+				this.zKey = 'last_frost_date'
 				break;
 			case 'viz-grow-last-diff':
 				this.yKey = 'last_frost'
 				this.xKey = 'year'
+				this.zKey = 'last_frost_date'
 				break;
 			case 'viz-season-prec-diff':
 				this.yKey = 'precipitation_'+p
@@ -226,15 +231,15 @@ class DataHandler {
 				this.xKey = 'winter_year'
 				break;
 			case 'viz-snowdepth-decade-period':
-				this.yKey = 'avg_snowdepth_deci'
+				this.yKey = 'avg_snowdepth'
 				this.xKey = 'month'
 				break;
 			case 'viz-snowdepth-period-period':
-				this.yKey = 'avg_snowdepth_deci'
+				this.yKey = 'avg_snowdepth'
 				this.xKey = 'month'
 				break;
 			case 'viz-snowdepth-annual-avg':
-				this.yKey = 'avg_snowdepth_deci'
+				this.yKey = 'avg_snowdepth'
 				this.xKey = 'year'
 				break;
 			case 'viz-carbon-co2':
@@ -367,6 +372,7 @@ class DataHandler {
 		return values.map(each => {
 			let x = each[this.xKey]
 			let y = each[this.yKey]
+			let z = each[this.zKey]
 			if (this.xKey == 'datetime' ){
 				x = new Date(x).getTime();
 			}
@@ -378,6 +384,7 @@ class DataHandler {
 			return ({
 				x, 
 				y,
+				date: z,
 				sort: each.sort ? each.sort : x,
 				station: each.station ? each.station : this.station
 			})
@@ -440,7 +447,7 @@ class Serie {
 								this.specs.dates.end = this.specs.dates.start + 9;
 						}
 				}
-				this.tags = ['snowdepth_single', 'splitDecades', 'shortValues']
+				this.tags = ['snowdepth', 'splitDecades', 'shortValues']
 				break;
 			case "co2":
 				this.station = meta.stationDef.station;

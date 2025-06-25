@@ -83,11 +83,13 @@ exports.formatters = function (meta) {
 
         },
         "winterValueDateExtreme" () {
+		console.log(meta)
 
             try {
 
                 let tooltip = `<span style="font-size: 10px">Winter ${this.x}-${this.x + 1}</span><br/>`;
                 this.points.forEach((point) => {
+			console.log(point.point)
                     tooltip += `<span style="color:${
                         point.color
                     }">\u25CF</span> ${
